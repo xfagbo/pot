@@ -1,0 +1,209 @@
+<html>
+<head>
+<style>
+/* reset the default margin and padding of all elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* set the width and centering of the container element */
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  font-family: Helvetica, sans-serif;
+}
+
+/* style the profile section with flexbox and background color */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+/* style the profile image with a circular shape and overflow hidden */
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* make the profile image fill the container */
+.profile-image img {
+  width: 100%;
+}
+
+/* add some margin to the profile info section and center the text */
+.profile-info {
+  margin-top: 20px;
+  text-align: center; /* added this line to center the text */
+}
+
+/* style the profile name with a larger font size and bold weight */
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* style the course of study with a smaller font size and gray color */
+.Course of study {
+	font-size: 12px;
+    margin-top :20px;
+	margin-bottom :10px; 
+	color: #666666;
+}
+
+/* style the university of study with a smaller font size and some margin */
+.University of Study {
+   font-size :12px; 
+   margin-top: 50px;
+   margin-bottom :50px; 
+}
+
+/* display the profile buttons as flex items and add some margin */
+.profile-buttons {
+   display :flex; 
+   margin-top: 12px;
+   margin-bottom :10px; 
+}
+
+/* make the profile buttons fill the available space and add some padding, border, color and shadow */
+.profile-button {
+   flex :1; 
+   padding :10px; 
+   border :none; 
+   color :white; 
+   box-shadow :0px -2px #333333 inset; 
+}
+
+/* style the first profile button with a green background color */
+.profile-button:first-child {
+   background-color :#008000; 
+}
+/* style the last profile button with a blue background color and some margin */
+.profile-button:last-child {
+   margin-left :10px; 
+   background-color :#0099ff; /* changed the blue tint */
+}
+/* display the tabs as flex items */
+.tabs {
+   display :flex; 
+}
+/* make the tabs fill the available space and add some padding, border, text alignment, background color and cursor */
+.tab {
+   flex :1; 
+   padding-top :5px; 
+   padding-bottom :5px; 
+   text-align :center; 
+   background-color :#f0f0f0; 
+   border-top :1px solid #cccccc; 
+   border-bottom :1px solid #cccccc; 
+   cursor :pointer; 
+}
+/* change the background color of the tab on hover */
+.tab:hover { 
+   background-color :#e0e0e0; 
+}
+/* style the active tab with a white background color, no bottom border and a complex box shadow effect */
+.tab.active { 
+   background-color :#ffffff; 
+   border-bottom :none; 
+   box-shadow :-2px -2px #ffffff inset, -2x-2x #ffffff, -4x-4x #cccccc, -6x-6x #ffffff, -8x-8x #cccccc, -10x-10x #ffffff, -12x-12x #cccccc inset, -14x-14x #ffffff inset, -16x-16x #cccccc inset, -18x-18x #ffffff inset, -20x-20x #cccccc inset, -22x-22x #ffffff inset, -24x-24x #cccccc inset, -26x-26x #ffffff inset, -28x-28x #cccccc inset
+}
+/* hide the content by default and add some padding and border */
+.content { 
+   display :none; 
+   font-size: 14px;
+   margin: 30px;
+   padding :10px; 
+   border:1px solid #cccccc; /* added this line to add a narrow border */
+}
+#content-2 {
+	font-family: Helvetica, sans-serif;
+}
+p {
+	margin-bottom: 10px;
+}
+/* show the active content */
+.content.active { 
+   display :block; 
+}
+</style>
+<script>
+// function to show the selected tab and hide the others
+function showTab(n) {
+    // get all the tabs and contents
+    var tabs = document.getElementsByClassName("tab");
+    var contents = document.getElementsByClassName("content");
+    // loop through them and remove the active class
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+        contents[i].classList.remove("active");
+    }
+    // add the active class to the n-th tab and content
+    tabs[n-1].classList.add("active");
+    contents[n-1].classList.add("active");
+    // make the active tab grow a bit with its content
+    tabs[n-1].style.transform = "scale(1.1)";
+    contents[n-1].style.transform = "scale(1.1)";
+    // make the other tabs shrink a bit
+    for (var i = 0; i < tabs.length; i++) {
+        if (i != n-1) {
+            tabs[i].style.transform = "scale(0.9)";
+        }
+    }
+}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="profile">
+<div class="profile-image">
+<div style="border-radius:50%; background-image: linear-gradient(to right, yellow , orange); width:80px;height:80px;"> <!-- removed the profile picture and replaced it with a gradient circle -->
+</div>
+</div>
+<div class="profile-info">
+<div class="profile-name">Alagoa Alex BIobelemo</div>
+<div class="profile-course of study">Computer Science and Informatics</div>
+<div class="profile-univeristy of study">Federal University Otuoke, Bayelsa State</div>
+<div class="profile-buttons">
+<button class="profile-button" onclick="window.location.href='tel:+1234567890'">Call</button>
+<button class="profile-button" onclick="window.location.href='https://wa.me/+1234567890'">Message</button>
+</div>
+</div>
+</div>
+<!-- removed the stats section -->
+<div class="tabs">
+<div class="tab active" onclick="showTab(1)"><strong>01</strong><br>Profile summary</div>
+<div class="tab" onclick="showTab(2)"><strong>02</strong><br>Field of interest</div>
+<div class="tab" onclick="showTab(3)"><strong>03</strong><br>Brief description</div>
+</div>
+<!-- added some dummy content for each tab -->
+<div id="content-1" class="content active">
+<p><strong>Name:</strong> Alagoa Alex BIobelemo</p>
+<p><strong>Matric No;</strong> FUO/18/CSI/9277.</p>
+<p><strong>Faculty;</strong> Science</p>
+<p><strong>Department;</strong> Computer Science </p>
+<p><strong>Course Code;</strong> CSC 404</p>
+<p><strong>Course Title;</strong> Web Application Development.</p>
+<p><strong>Level;</strong> 400</p>
+<p><strong>Degree Type;</strong> Bachelor of Science(BSc.)</p>
+</div>
+<div id="content-2" class="content">
+<p>My areas of speciaity are listed below:</p>
+<p>1) <strong>3D Modelling and Rendering:</strong> involving the use CAD (Computer Aided Design) software in designing 3D architectural models and producing photorealistic images and viewable 3D environments</p>
+<p> </p>
+<p>2) <strong>AI (Artifical Intelligence):</strong> The learning and use of AI tools to solve complex problems demanding tedious human effort, efficently and effectively.</p>
+<p>3) <strong>Web Design:</strong> The use of CMS and other advanced tools in the design and implementation of single and multi-purpose websites.</p>
+</div>
+<div id="content-3" class="content">
+<p>I am Alagoa Alex BIobelemo, currently an undergraduate student stufying Computer Science and Informatics at Federal University Otuoke, Bayelsa State.</p>
+<p>I am passionate towards the use of technology in improving our everyday interaction and lives overall</p>
+<p>I believe the implementationof new technologies such as AI (Artificial Intelligence), Blockchain and a whole host of others would completely revolutionalise the global sector in all ramifications</p>
+</div>
